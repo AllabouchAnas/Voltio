@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef El Amrani — Electrical Specialist Marrakech</title>
+  <meta name="description" content="Independent electrical specialist in Marrakech. Residential upgrades, smart home, solar & 24/7 emergency repairs. Free site assessment." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="translations.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { volt: { 300:'#fde68a',400:'#facc15',500:'#eab308',600:'#ca8a04' } } } }
+    }
+  </script>
+  <style>
+    body { transition: background-color .3s, color .3s; }
+    .bolt-glow { filter: drop-shadow(0 0 12px rgba(250,204,21,.7)) drop-shadow(0 0 28px rgba(250,204,21,.3)); }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .float-anim { animation: float 5s ease-in-out infinite; }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(250,204,21,.5)} 70%{box-shadow:0 0 0 12px rgba(250,204,21,0)} 100%{box-shadow:0 0 0 0 rgba(250,204,21,0)} }
+    .pulse-btn { animation: pulse-ring 2s infinite; }
+    @keyframes pulse-green { 0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)} 70%{box-shadow:0 0 0 12px rgba(34,197,94,0)} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0)} }
+    .pulse-green { animation: pulse-green 2s infinite; }
+    .card-hover { transition: transform .3s, box-shadow .3s; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(250,204,21,.13); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#facc15; transition:width .3s; }
+    .nav-link:hover::after { width:100%; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .35s ease, opacity .35s; opacity:0; }
+    .faq-answer.open { max-height:300px; opacity:1; }
+    .reveal { opacity:0; transform:translateY(22px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .grad-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(250,204,21,.2),transparent); }
+    /* Hero background */
+    .dark .hero-section { background: radial-gradient(ellipse at 60% 40%, rgba(250,204,21,.08) 0%, transparent 55%), #0a0a0f; }
+    html:not(.dark) .hero-section { background: radial-gradient(ellipse at 60% 40%, rgba(250,204,21,.06) 0%, transparent 55%), #f8fafc; }
+    /* Profile photo ring */
+    .profile-ring {
+      position: relative;
+      border-radius: 2rem;
+      padding: 3px;
+      background: linear-gradient(135deg, #facc15 0%, rgba(250,204,21,.2) 50%, #facc15 100%);
+    }
+    .profile-ring img { border-radius: calc(2rem - 3px); display: block; width: 100%; height: 100%; object-fit: cover; }
+    /* Gold stat card border */
+    .gold-card { position:relative; }
+    .gold-card::before {
+      content:''; position:absolute; inset:0; border-radius:inherit;
+      padding:1px; background:linear-gradient(135deg,rgba(250,204,21,.4),transparent);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+    }
+    /* Portfolio overlay */
+    .portfolio-card { position:relative; overflow:hidden; border-radius:1.25rem; }
+    .portfolio-card img { width:100%; height:260px; object-fit:cover; transition:transform .4s ease; }
+    .portfolio-card:hover img { transform:scale(1.05); }
+    .portfolio-overlay {
+      position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 50%);
+      display:flex; flex-direction:column; justify-content:flex-end; padding:1.25rem;
+      opacity:1;
+    }
+    /* CTA big buttons */
+    .cta-call { background: linear-gradient(135deg, #facc15, #eab308); color:#111; }
+    .cta-call:hover { background: linear-gradient(135deg, #eab308, #ca8a04); transform:translateY(-3px); box-shadow:0 12px 32px rgba(250,204,21,.3); }
+    .cta-wa { background: linear-gradient(135deg, #22c55e, #16a34a); color:#fff; }
+    .cta-wa:hover { background: linear-gradient(135deg, #16a34a, #15803d); transform:translateY(-3px); box-shadow:0 12px 32px rgba(34,197,94,.3); }
+    .cta-call, .cta-wa { transition: all .3s ease; }
+    /* Quote blockquote */
+    .blockquote { position:relative; }
+    .blockquote::before { content:'"'; position:absolute; top:-.5rem; font-size:5rem; color:rgba(250,204,21,.15); font-family:Georgia,serif; line-height:1; }
+  </style>
+</head>
+<body class="dark:bg-[#0a0a0f] dark:text-white bg-slate-50 text-slate-900 overflow-x-hidden transition-colors duration-300">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="#" class="flex items-center gap-2 shrink-0">
+        <div class="w-8 h-8 bg-volt-400 rounded-lg flex items-center justify-center bolt-glow">
+          <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L4.09 12.97H11L10 22L20.91 11.03H14L13 2Z"/></svg>
+        </div>
+        <span class="text-lg font-black tracking-tight"><span class="text-volt-400">VOLT</span>IO</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#services" class="nav-link text-sm dark:text-gray-300 text-slate-600 hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav.services">Services</a>
+        <a href="#about" class="nav-link text-sm dark:text-gray-300 text-slate-600 hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav.about">The Technician</a>
+        <a href="#portfolio" class="nav-link text-sm dark:text-gray-300 text-slate-600 hover:text-slate-900 dark:hover:text-white transition-colors">Portfolio</a>
+        <a href="#testimonials" class="nav-link text-sm dark:text-gray-300 text-slate-600 hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav.reviews">Reviews</a>
+        <a href="#contact" class="nav-link text-sm dark:text-gray-300 text-slate-600 hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav.contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="flex items-center dark:bg-white/5 bg-slate-200/70 rounded-lg overflow-hidden border dark:border-white/10 border-slate-300 text-xs font-bold">
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn px-2.5 py-1.5 transition-colors">EN</button>
+          <button onclick="setLang('fr')" id="btn-fr" class="lang-btn px-2.5 py-1.5 transition-colors">FR</button>
+          <button onclick="setLang('ar')" id="btn-ar" class="lang-btn px-2.5 py-1.5 transition-colors">ع</button>
+        </div>
+        <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg flex items-center justify-center border dark:border-white/10 border-slate-300 dark:bg-white/5 bg-slate-200/70 hover:bg-volt-400/20 transition-colors" aria-label="Toggle theme">
+          <span id="theme-icon" class="text-base">🌙</span>
+        </button>
+        <a href="tel:+212661234567" class="pulse-btn bg-volt-400 hover:bg-volt-500 text-slate-900 font-black text-xs px-3 py-2 rounded-lg transition-colors" data-i18n="nav.callNow">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="hero-section relative min-h-screen flex items-center">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-32">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Text -->
+      <div class="order-2 lg:order-1">
+        <div class="inline-flex items-center gap-2 bg-volt-400/10 border border-volt-400/30 rounded-full px-4 py-1.5 text-volt-500 dark:text-volt-400 text-xs font-semibold mb-6">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <span data-i18n="hero.badge">12+ Years Field Experience · 24/7 Rapid Response</span>
+        </div>
+        <h1 class="text-5xl sm:text-6xl lg:text-[4rem] xl:text-7xl font-black leading-[1.05] mb-6">
+          <span data-i18n="hero.headline1">Modern Electrical</span><br/>
+          <span class="text-volt-400" data-i18n="hero.headlineAccent">Solutions</span><br/>
+          <span data-i18n="hero.headline2">for Marrakech</span>
+        </h1>
+        <p class="dark:text-gray-400 text-slate-500 text-lg max-w-lg mb-8 leading-relaxed" data-i18n="hero.intro"></p>
+        <!-- Stats row -->
+        <div class="flex flex-wrap gap-6 mb-10">
+          <div><div class="text-3xl font-black text-volt-400" data-i18n="hero.stat1Val">12+</div><div class="text-xs dark:text-gray-400 text-slate-500 mt-0.5" data-i18n="hero.stat1Label">Years on the tools</div></div>
+          <div class="w-px dark:bg-gray-700 bg-slate-200 self-stretch"></div>
+          <div><div class="text-3xl font-black text-volt-400" data-i18n="hero.stat2Val">400+</div><div class="text-xs dark:text-gray-400 text-slate-500 mt-0.5" data-i18n="hero.stat2Label">Jobs delivered</div></div>
+          <div class="w-px dark:bg-gray-700 bg-slate-200 self-stretch"></div>
+          <div><div class="text-3xl font-black text-volt-400" data-i18n="hero.stat3Val">45 min</div><div class="text-xs dark:text-gray-400 text-slate-500 mt-0.5" data-i18n="hero.stat3Label">Emergency response</div></div>
+        </div>
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="cta-call font-black px-7 py-4 rounded-xl text-base" data-i18n="hero.cta1">Get a Free Site Assessment</a>
+          <a href="tel:+212661234567" class="border dark:border-volt-400/40 border-volt-500/50 hover:border-volt-400 dark:text-white text-slate-700 font-semibold px-7 py-4 rounded-xl transition-all duration-300 text-base hover:bg-volt-400/10" data-i18n="hero.cta2">📞 +212 661-234-567</a>
+        </div>
+      </div>
+      <!-- Right: Profile Photo -->
+      <div class="order-1 lg:order-2 flex items-center justify-center">
+        <div class="relative float-anim">
+          <!-- Glow blob -->
+          <div class="absolute inset-0 rounded-full bg-volt-400/15 blur-3xl scale-125"></div>
+          <!-- Photo frame -->
+          <div class="profile-ring w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 relative shadow-2xl">
+            <img src="images/youssef_profile.png" alt="Youssef El Amrani, Electrical Specialist Marrakech" />
+          </div>
+          <!-- Name badge -->
+          <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap dark:bg-[#1a1a24] bg-white border dark:border-volt-400/30 border-volt-400/40 rounded-2xl px-4 py-2.5 shadow-xl text-center">
+            <div class="font-black text-sm dark:text-white text-slate-900" data-i18n="hero.profileCaption">Youssef El Amrani · Independent Electrical Technician</div>
+          </div>
+          <!-- Emergency badge -->
+          <div class="absolute -top-4 -right-4 bg-red-500 text-white rounded-2xl px-3 py-2 shadow-lg text-xs font-black border-2 border-red-300">
+            24/7<br/><span class="text-red-100 font-normal text-[10px]">Emergency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- scroll -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
+    <div class="w-5 h-8 border-2 dark:border-gray-600 border-slate-300 rounded-full flex justify-center pt-1"><div class="w-1 h-2 bg-volt-400 rounded-full animate-bounce"></div></div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="py-24 dark:bg-[#111118] bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="services.tag">Specialized Services</p>
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" data-i18n="services.title">High-Performance Power Systems</h2>
+      <p class="dark:text-gray-400 text-slate-500 max-w-2xl mx-auto" data-i18n="services.sub"></p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid"></div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="py-24 dark:bg-[#0a0a0f] bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <!-- Stats grid -->
+      <div class="space-y-6">
+        <div class="grid grid-cols-2 gap-4" id="about-stats-grid"></div>
+        <!-- Quote block -->
+        <div class="blockquote dark:bg-[#111118] bg-white rounded-2xl border dark:border-white/5 border-slate-100 p-8 shadow-sm mt-2">
+          <p class="text-lg font-semibold dark:text-gray-200 text-slate-700 leading-relaxed italic pt-6" id="about-quote" data-i18n="about.quote"></p>
+        </div>
+      </div>
+      <!-- Text -->
+      <div>
+        <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="about.tag">The Technician</p>
+        <h2 class="text-4xl sm:text-5xl font-black mb-6">
+          <span data-i18n="about.title">Precision. Punctuality.</span><br/>
+          <span class="text-volt-400" data-i18n="about.titleAccent">Performance.</span>
+        </h2>
+        <p class="dark:text-gray-400 text-slate-500 leading-relaxed mb-4" data-i18n="about.p1"></p>
+        <p class="dark:text-gray-400 text-slate-500 leading-relaxed mb-8" data-i18n="about.p2"></p>
+        <div class="space-y-4" id="about-points"></div>
+        <!-- Inline CTA -->
+        <div class="flex flex-wrap gap-3 mt-10">
+          <a href="tel:+212661234567" class="cta-call font-black px-6 py-3 rounded-xl text-sm" data-i18n="contact.callBtn">📞 Call Now</a>
+          <a href="https://wa.me/212661234567" target="_blank" class="cta-wa font-black px-6 py-3 rounded-xl text-sm" data-i18n="contact.waBtn">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process" class="py-24 dark:bg-[#111118] bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="process.tag">How It Works</p>
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" data-i18n="process.title">Seamless Service from Start to Finish</h2>
+      <p class="dark:text-gray-400 text-slate-500 max-w-xl mx-auto" data-i18n="process.sub"></p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8" id="process-steps"></div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== PORTFOLIO ===================== -->
+<section id="portfolio" class="py-24 dark:bg-[#0a0a0f] bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="portfolio.tag">Portfolio</p>
+      <h2 class="text-4xl sm:text-5xl font-black mb-4" data-i18n="portfolio.title">Real Jobs. Real Results.</h2>
+      <p class="dark:text-gray-400 text-slate-500 max-w-2xl mx-auto" data-i18n="portfolio.sub"></p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6" id="portfolio-grid"></div>
+    <!-- CTA nudge below portfolio -->
+    <div class="mt-14 text-center">
+      <p class="dark:text-gray-400 text-slate-500 mb-5 text-sm">Want to see what your project could look like?</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="tel:+212661234567" class="cta-call font-black px-8 py-4 rounded-xl text-base" data-i18n="contact.callBtn">📞 Call Now</a>
+        <a href="https://wa.me/212661234567" target="_blank" class="cta-wa font-black px-8 py-4 rounded-xl text-base" data-i18n="contact.waBtn">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials" class="py-24 dark:bg-[#111118] bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="testimonials.tag">In Their Own Words</p>
+      <h2 class="text-4xl sm:text-5xl font-black mb-3" data-i18n="testimonials.title">People Who Let Me Into Their Homes</h2>
+      <div class="flex items-center justify-center gap-1 mt-2">
+        <span class="text-volt-400 text-2xl">★★★★★</span>
+        <span class="dark:text-gray-300 text-slate-600 ml-2 font-semibold">4.9 / 5</span>
+        <span class="dark:text-gray-500 text-slate-400 text-sm ml-1">(<span data-i18n="testimonials.ratingLabel">87 verified reviews</span>)</span>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="testimonials-grid"></div>
+    <div class="text-center mt-10">
+      <a href="#" class="inline-flex items-center gap-2 text-sm dark:text-gray-400 text-slate-500 hover:text-volt-500 border dark:border-white/10 border-slate-200 hover:border-volt-400/40 px-6 py-3 rounded-xl transition-all duration-300">
+        <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span data-i18n="testimonials.googleBtn">Read all reviews on Google</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-24 dark:bg-[#0a0a0f] bg-slate-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="faq.tag">Questions</p>
+      <h2 class="text-4xl sm:text-5xl font-black" data-i18n="faq.title">Things You're Probably Wondering</h2>
+    </div>
+    <div class="space-y-3" id="faq-container"></div>
+    <!-- FAQ CTA -->
+    <div class="mt-12 dark:bg-[#111118] bg-white rounded-2xl border dark:border-volt-400/20 border-volt-400/30 p-8 text-center shadow-sm">
+      <p class="font-bold text-lg mb-2 dark:text-white text-slate-900">Still have a question?</p>
+      <p class="dark:text-gray-400 text-slate-500 text-sm mb-6">Just ask me directly — I usually reply within minutes.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="tel:+212661234567" class="cta-call font-black px-6 py-3 rounded-xl text-sm" data-i18n="contact.callBtn">📞 Call Now</a>
+        <a href="https://wa.me/212661234567" target="_blank" class="cta-wa font-black px-6 py-3 rounded-xl text-sm" data-i18n="contact.waBtn">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- ===================== CONTACT (No Form) ===================== -->
+<section id="contact" class="py-24 dark:bg-[#111118] bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-volt-500 dark:text-volt-400 font-semibold text-sm uppercase tracking-widest mb-3" data-i18n="contact.tag">Let's Talk</p>
+    <h2 class="text-4xl sm:text-5xl font-black mb-4" data-i18n="contact.title">Let's Get Your Power Back on Track</h2>
+    <p class="dark:text-gray-400 text-slate-500 text-lg max-w-xl mx-auto mb-12" data-i18n="contact.sub"></p>
+    <!-- Giant CTA buttons -->
+    <div class="flex flex-col sm:flex-row gap-5 justify-center mb-14">
+      <a href="tel:+212661234567" class="cta-call pulse-btn font-black px-10 py-5 rounded-2xl text-xl flex items-center justify-center gap-3 shadow-xl">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span data-i18n="contact.callBtn">📞 Call Now</span>
+      </a>
+      <a href="https://wa.me/212661234567" target="_blank" class="cta-wa pulse-green font-black px-10 py-5 rounded-2xl text-xl flex items-center justify-center gap-3 shadow-xl">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="contact.waBtn">💬 WhatsApp</span>
+      </a>
+    </div>
+    <!-- Info row -->
+    <div class="grid sm:grid-cols-3 gap-4 mb-10">
+      <a href="tel:+212661234567" class="flex items-center gap-3 dark:bg-[#1a1a24] bg-slate-50 rounded-2xl p-4 border dark:border-white/5 border-slate-200 hover:border-volt-400/30 transition-all shadow-sm group">
+        <div class="w-10 h-10 bg-volt-400/10 group-hover:bg-volt-400/20 rounded-xl flex items-center justify-center text-xl transition-colors">📞</div>
+        <div class="text-start">
+          <div class="text-xs dark:text-gray-400 text-slate-400 mb-0.5" data-i18n="contact.callLabel">Direct Line</div>
+          <div class="font-bold text-sm">+212 661-234-567</div>
+        </div>
+      </a>
+      <a href="https://wa.me/212661234567" target="_blank" class="flex items-center gap-3 dark:bg-[#1a1a24] bg-slate-50 rounded-2xl p-4 border dark:border-white/5 border-slate-200 hover:border-green-400/30 transition-all shadow-sm group">
+        <div class="w-10 h-10 bg-green-500/10 group-hover:bg-green-500/20 rounded-xl flex items-center justify-center text-xl transition-colors">💬</div>
+        <div class="text-start">
+          <div class="text-xs dark:text-gray-400 text-slate-400 mb-0.5" data-i18n="contact.waLabel">WhatsApp</div>
+          <div class="font-bold text-sm">wa.me/212661234567</div>
+        </div>
+      </a>
+      <a href="mailto:youssef.electricien@gmail.com" class="flex items-center gap-3 dark:bg-[#1a1a24] bg-slate-50 rounded-2xl p-4 border dark:border-white/5 border-slate-200 hover:border-volt-400/30 transition-all shadow-sm group">
+        <div class="w-10 h-10 bg-volt-400/10 group-hover:bg-volt-400/20 rounded-xl flex items-center justify-center text-xl transition-colors">✉️</div>
+        <div class="text-start">
+          <div class="text-xs dark:text-gray-400 text-slate-400 mb-0.5" data-i18n="contact.emailLabel">Email</div>
+          <div class="font-bold text-sm">youssef.electricien@gmail.com</div>
+        </div>
+      </a>
+    </div>
+    <!-- Map -->
+    <div class="rounded-2xl overflow-hidden border dark:border-white/5 border-slate-200 shadow-sm">
+      <div class="text-xs dark:text-gray-500 text-slate-400 px-4 py-2 dark:bg-[#1a1a24] bg-slate-100 border-b dark:border-white/5 border-slate-200 font-medium text-start" data-i18n="contact.mapLabel">Coverage Area (Marrakech & around)</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108892.35019064795!2d-8.072576!3d31.63461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sMarrakech!5e0!3m2!1sen!2sus!4v1700000000000"
+        width="100%" height="240" id="map-iframe" style="border:0;display:block;filter:invert(90%) hue-rotate(180deg);" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="dark:bg-[#0a0a0f] bg-slate-100 border-t dark:border-white/5 border-slate-200 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 bg-volt-400 rounded-lg flex items-center justify-center bolt-glow">
+            <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L4.09 12.97H11L10 22L20.91 11.03H14L13 2Z"/></svg>
+          </div>
+          <span class="text-lg font-black"><span class="text-volt-400">VOLT</span>IO</span>
+        </div>
+        <p class="dark:text-gray-400 text-slate-500 text-sm max-w-xs leading-relaxed mb-5" data-i18n="footer.tagline"></p>
+        <div class="flex gap-2">
+          <a href="#" class="w-8 h-8 dark:bg-[#1a1a24] bg-white hover:bg-volt-400/20 rounded-lg flex items-center justify-center dark:text-gray-400 text-slate-500 hover:text-volt-500 transition-colors text-xs font-bold border dark:border-white/5 border-slate-200">f</a>
+          <a href="#" class="w-8 h-8 dark:bg-[#1a1a24] bg-white hover:bg-volt-400/20 rounded-lg flex items-center justify-center dark:text-gray-400 text-slate-500 hover:text-volt-500 transition-colors text-xs font-bold border dark:border-white/5 border-slate-200">in</a>
+          <a href="https://wa.me/212661234567" class="w-8 h-8 dark:bg-[#1a1a24] bg-white hover:bg-green-500/20 rounded-lg flex items-center justify-center dark:text-gray-400 text-slate-500 hover:text-green-500 transition-colors text-xs font-bold border dark:border-white/5 border-slate-200">W</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3 text-sm" data-i18n="footer.services">Services</h4>
+        <ul class="space-y-2 text-sm dark:text-gray-400 text-slate-500" id="footer-service-links"></ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3 text-sm" data-i18n="footer.company">Navigate</h4>
+        <ul class="space-y-2 text-sm dark:text-gray-400 text-slate-500">
+          <li><a href="#about" class="hover:text-volt-500 transition-colors" data-i18n="footer.links.about">The Technician</a></li>
+          <li><a href="#portfolio" class="hover:text-volt-500 transition-colors">Portfolio</a></li>
+          <li><a href="#testimonials" class="hover:text-volt-500 transition-colors" data-i18n="footer.links.reviews">Reviews</a></li>
+          <li><a href="#faq" class="hover:text-volt-500 transition-colors" data-i18n="footer.links.faq">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-volt-500 transition-colors" data-i18n="footer.links.contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t dark:border-white/5 border-slate-200 pt-5 text-center text-sm dark:text-gray-500 text-slate-400">
+      <span data-i18n="footer.copyright"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING CTA BAR (mobile) ===================== -->
+<div class="fixed bottom-0 left-0 right-0 z-40 md:hidden dark:bg-[#111118]/95 bg-white/95 backdrop-blur-sm border-t dark:border-white/10 border-slate-200 px-4 py-3 flex gap-3">
+  <a href="tel:+212661234567" class="flex-1 cta-call font-black py-3.5 rounded-xl text-center text-sm" data-i18n="floatCall">📞 Call Now</a>
+  <a href="https://wa.me/212661234567" target="_blank" class="flex-1 cta-wa font-black py-3.5 rounded-xl text-center text-sm" data-i18n="floatWa">💬 WhatsApp</a>
+</div>
+<!-- Floating WhatsApp bubble (desktop) -->
+<a href="https://wa.me/212661234567" target="_blank" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full items-center justify-center shadow-xl shadow-green-500/30 transition-all hover:scale-110">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+/* ── THEME ── */
+const html = document.documentElement;
+function applyTheme(dark) {
+  if (dark) { html.classList.add('dark'); document.getElementById('theme-icon').textContent='🌙'; document.getElementById('map-iframe').style.filter='invert(90%) hue-rotate(180deg)'; }
+  else { html.classList.remove('dark'); document.getElementById('theme-icon').textContent='☀️'; document.getElementById('map-iframe').style.filter='none'; }
+}
+function toggleTheme() { const d=html.classList.contains('dark'); localStorage.setItem('theme',d?'light':'dark'); applyTheme(!d); }
+(function(){ const s=localStorage.getItem('theme'); applyTheme(s ? s==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches); })();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',e=>{ if(!localStorage.getItem('theme')) applyTheme(e.matches); });
+
+/* ── I18N ── */
+let currentLang='en';
+function t(key){ let v=TRANSLATIONS[currentLang]; for(const p of key.split('.')) v=v?.[p]; return v??key; }
+
+function applyLang(lang){
+  if(!TRANSLATIONS[lang]) return;
+  currentLang=lang; localStorage.setItem('lang',lang);
+  const tr=TRANSLATIONS[lang];
+  html.lang=lang; html.dir=tr.dir; document.body.style.fontFamily=tr.font;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ const v=t(el.getAttribute('data-i18n')); if(typeof v==='string') el.textContent=v; });
+  ['en','fr','ar'].forEach(l=>{ const b=document.getElementById('btn-'+l); if(!b) return; if(l===lang){ b.classList.add('bg-volt-400','text-slate-900'); b.classList.remove('dark:text-gray-300','text-slate-600'); } else { b.classList.remove('bg-volt-400','text-slate-900'); b.classList.add('dark:text-gray-300','text-slate-600'); } });
+  renderAll();
+}
+function setLang(l){ applyLang(l); }
+function detectLang(){ const s=localStorage.getItem('lang'); if(s&&TRANSLATIONS[s]) return s; const n=(navigator.language||'en').split('-')[0].toLowerCase(); return TRANSLATIONS[n]?n:'en'; }
+
+/* ── RENDER ── */
+function renderAll(){ renderServices(); renderAbout(); renderProcess(); renderPortfolio(); renderTestimonials(); renderFaq(); renderFooterLinks(); setupReveal(); }
+
+function renderServices(){
+  const el=document.getElementById('services-grid'), cards=t('services.cards');
+  if(!Array.isArray(cards)) return;
+  el.innerHTML=cards.map(c=>{
+    const isRed=c.badgeColor==='red';
+    const tagCls=isRed?'bg-red-500/10 text-red-400':'bg-volt-400/10 text-volt-500 dark:text-volt-400';
+    const iconBg=isRed?'bg-red-500/10 group-hover:bg-red-500/20':'bg-volt-400/10 group-hover:bg-volt-400/20';
+    const badge=c.badge?`<div class="absolute top-4 ${html.dir==='rtl'?'left-4':'right-4'} bg-red-500 text-white text-xs font-black px-2 py-0.5 rounded-full">${c.badge}</div>`:'';
+    const tags=(c.tags||[]).map(tg=>`<span class="text-xs ${tagCls} px-2 py-0.5 rounded-full">${tg}</span>`).join('');
+    return `<div class="reveal card-hover dark:bg-[#1a1a24] bg-white rounded-2xl p-6 border dark:border-white/5 border-slate-100 shadow-sm cursor-pointer group relative">
+      ${badge}<div class="w-14 h-14 ${iconBg} rounded-2xl flex items-center justify-center mb-5 transition-colors text-3xl">${c.icon}</div>
+      <h3 class="text-xl font-bold mb-2">${c.title}</h3>
+      <p class="dark:text-gray-400 text-slate-500 text-sm leading-relaxed">${c.desc}</p>
+      <div class="mt-4 flex flex-wrap gap-2">${tags}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderAbout(){
+  const stats=t('about.stats'), points=t('about.points');
+  const sg=document.getElementById('about-stats-grid');
+  if(Array.isArray(stats)) sg.innerHTML=stats.map(s=>`
+    <div class="reveal gold-card dark:bg-[#1a1a24] bg-white rounded-2xl p-6 text-center shadow-sm border dark:border-white/5 border-slate-100">
+      <div class="text-2xl font-black text-volt-400 mb-1">${s.val}</div>
+      <div class="text-sm dark:text-gray-300 text-slate-600 font-semibold">${s.label}</div>
+    </div>`).join('');
+  const q=document.getElementById('about-quote'); if(q){ const v=t('about.quote'); if(typeof v==='string') q.textContent=v; }
+  const pg=document.getElementById('about-points');
+  if(Array.isArray(points)) pg.innerHTML=points.map(p=>`
+    <div class="reveal flex items-start gap-4">
+      <div class="w-10 h-10 bg-volt-400/10 rounded-xl flex items-center justify-center shrink-0 text-lg">${p.icon}</div>
+      <div><div class="font-semibold mb-0.5">${p.title}</div><div class="dark:text-gray-400 text-slate-500 text-sm">${p.desc}</div></div>
+    </div>`).join('');
+}
+
+function renderProcess(){
+  const steps=t('process.steps'), el=document.getElementById('process-steps');
+  if(!Array.isArray(steps)) return;
+  el.innerHTML=steps.map(s=>`
+    <div class="reveal text-center">
+      <div class="w-20 h-20 bg-gradient-to-br from-volt-400 to-volt-600 rounded-2xl flex items-center justify-center text-slate-900 text-3xl font-black shadow-lg shadow-volt-400/20 mx-auto mb-6">${s.num}</div>
+      <h3 class="text-xl font-bold mb-3">${s.icon} ${s.title}</h3>
+      <p class="dark:text-gray-400 text-slate-500 text-sm leading-relaxed">${s.desc}</p>
+    </div>`).join('');
+}
+
+function renderPortfolio(){
+  const items=t('portfolio.items'), el=document.getElementById('portfolio-grid');
+  if(!Array.isArray(items)) return;
+  el.innerHTML=items.map(it=>`
+    <div class="reveal portfolio-card border dark:border-white/5 border-slate-200 shadow-sm">
+      <img src="${it.img}" alt="${it.title}" loading="lazy" />
+      <div class="portfolio-overlay">
+        <span class="text-xs font-bold bg-volt-400 text-slate-900 px-2.5 py-1 rounded-full self-start mb-2">${it.tag}</span>
+        <h3 class="font-black text-white text-lg leading-tight">${it.title}</h3>
+        <p class="text-gray-300 text-sm leading-relaxed mt-1">${it.desc}</p>
+      </div>
+    </div>`).join('');
+}
+
+function renderTestimonials(){
+  const cards=t('testimonials.cards'), el=document.getElementById('testimonials-grid');
+  if(!Array.isArray(cards)) return;
+  el.innerHTML=cards.map(c=>`
+    <div class="reveal dark:bg-[#1a1a24] bg-white rounded-2xl border dark:border-volt-400/10 border-slate-100 p-6 hover:border-volt-400/30 transition-colors shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-volt-400/20 rounded-full flex items-center justify-center font-bold text-volt-500 dark:text-volt-400">${c.initial}</div>
+        <div><div class="font-semibold text-sm">${c.name}</div><div class="text-yellow-400 text-xs">${c.stars}</div></div>
+      </div>
+      <p class="dark:text-gray-300 text-slate-600 text-sm leading-relaxed">"${c.text}"</p>
+      <div class="mt-3 text-xs dark:text-gray-500 text-slate-400">${c.service}</div>
+    </div>`).join('');
+}
+
+function renderFaq(){
+  const items=t('faq.items'), el=document.getElementById('faq-container');
+  if(!Array.isArray(items)) return;
+  el.innerHTML=items.map((it,i)=>`
+    <div class="reveal dark:bg-[#1a1a24] bg-white rounded-2xl border dark:border-white/5 border-slate-100 overflow-hidden shadow-sm">
+      <button onclick="toggleFaq(${i})" class="w-full text-left px-6 py-5 flex items-center justify-between font-semibold hover:text-volt-500 dark:hover:text-volt-400 transition-colors gap-4">
+        <span>${it.q}</span>
+        <svg id="faq-arr-${i}" class="w-5 h-5 text-volt-400 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="faq-ans-${i}" class="faq-answer px-6 pb-5 dark:text-gray-400 text-slate-500 text-sm leading-relaxed">${it.a}</div>
+    </div>`).join('');
+}
+
+function renderFooterLinks(){
+  const links=t('footer.serviceLinks'), el=document.getElementById('footer-service-links');
+  if(!Array.isArray(links)) return;
+  el.innerHTML=links.map(l=>`<li><a href="#services" class="hover:text-volt-500 transition-colors">${l}</a></li>`).join('');
+}
+
+/* ── NAVBAR ── */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50){ navbar.style.background=html.classList.contains('dark')?'rgba(10,10,15,.96)':'rgba(248,250,252,.96)'; navbar.style.backdropFilter='blur(12px)'; navbar.style.borderBottom='1px solid rgba(250,204,21,.08)'; navbar.style.boxShadow='0 2px 20px rgba(0,0,0,.08)'; }
+  else { navbar.style.background='transparent'; navbar.style.backdropFilter='none'; navbar.style.borderBottom='none'; navbar.style.boxShadow='none'; }
+},{passive:true});
+
+/* ── FAQ ── */
+function toggleFaq(i){ const a=document.getElementById('faq-ans-'+i),ar=document.getElementById('faq-arr-'+i); const o=a.classList.toggle('open'); ar.style.transform=o?'rotate(180deg)':''; }
+
+/* ── REVEAL ── */
+let ro;
+function setupReveal(){
+  if(ro) ro.disconnect();
+  ro=new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('visible'); }),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>{ el.classList.remove('visible'); ro.observe(el); });
+}
+
+/* ── INIT ── */
+applyLang(detectLang());
+</script>
+</body>
+</html>
